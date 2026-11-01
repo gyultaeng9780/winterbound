@@ -941,6 +941,12 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .ta-bus{height:24px}.ta-bus::before{height:12px}.ta-bus::after{top:12px}
   .ta-drop{top:-12px!important;height:12px!important}
 }
+
+@media (min-width:701px){
+  .ta-info{height:62px;min-height:0;box-sizing:border-box;overflow:hidden}
+  .ta-pd{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  #order.page{scrollbar-gutter:stable}
+}
 </style></head>
 <body>
 
@@ -1292,7 +1298,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
 (function(){const bus=document.querySelector('.ta-bus');if(!bus)return;
   function fit(){const ds=document.querySelectorAll('.ta-drop');if(ds.length<2||!bus.offsetWidth)return;const b=bus.getBoundingClientRect();
     const f=ds[0].getBoundingClientRect(),l=ds[ds.length-1].getBoundingClientRect();
-    bus.style.setProperty('--bl',(f.left-b.left)+'px');bus.style.setProperty('--br',(b.right-l.right)+'px');}
+    const k=(b.width/bus.offsetWidth)||1;bus.style.setProperty('--bl',((f.left-b.left)/k)+'px');bus.style.setProperty('--br',((b.right-l.right)/k)+'px');}
   addEventListener('resize',fit);new ResizeObserver(fit).observe(bus);
   document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>setTimeout(fit,50)));fit();
 })();
