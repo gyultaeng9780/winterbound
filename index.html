@@ -1007,12 +1007,12 @@ body{word-break:keep-all;overflow-wrap:break-word}
 .desk-frost{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;object-fit:cover;opacity:.92}
 .desk-edge{position:absolute;inset:0;pointer-events:none;z-index:4;background:radial-gradient(ellipse 80% 76% at 50% 50%,rgba(238,243,248,0) 62%,rgba(238,243,248,.5) 90%,rgba(238,243,248,.85) 100%)}
 .desk-stage{opacity:1}
-#continent.on .desk{animation:deskIn 1.6s cubic-bezier(.2,.7,.2,1) .25s both}
+#continent.on .desk{animation:deskIn 1.6s cubic-bezier(.2,.7,.2,1) .25s backwards}
 @keyframes deskIn{from{opacity:0;filter:blur(10px) brightness(1.4)}to{opacity:1;filter:none}}
 .desk-stage{position:absolute;inset:0;transform-origin:50% 50%;transition:transform 1.05s cubic-bezier(.65,0,.25,1),filter 1.05s ease}
 .desk-img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;user-select:none;-webkit-user-drag:none}
 .desk-steam{position:absolute;left:0;top:0;width:18.958%;height:31.019%;pointer-events:none}
-.desk-dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.desk-dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .desk-hit{position:absolute;inset:0;width:100%;height:100%}
 .desk-hit polygon{fill:rgba(255,236,200,0);stroke:rgba(255,236,200,0);stroke-width:2;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .45s,stroke .45s}
 .desk-hit polygon:hover,.desk-hit polygon:focus-visible{fill:rgba(255,236,200,.07);stroke:rgba(255,236,200,.55);outline:none}
