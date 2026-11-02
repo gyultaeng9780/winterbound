@@ -630,7 +630,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
 #races .race{padding-bottom:12px}
 #races .race-name{margin-top:16px}
 #races .race-rule{margin:10px 0 9px}
-#races .race-desc{font-size:12.5px;line-height:1.72}
+#races .race-desc{font-size:14.5px;line-height:1.75;color:#44587a;word-break:keep-all}.rs4 .rg{height:18px}
 #races .rs{margin-top:8px}
 #races .races{row-gap:16px}
 
@@ -900,8 +900,8 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .ta-panel{display:flex;align-items:center;gap:12px;animation:fadeIn .3s both}
   .ta-panel[hidden]{display:none}
   .ta-panel .og-suf{background:#1f3352;color:#fff;border-color:#1f3352;width:20px;height:20px;font-size:12px}
-  .ta-panel strong{font-size:14px;color:#1f3352;letter-spacing:.04em;white-space:nowrap}
-  .ta-pd{font-size:13px;color:#4b5f7c;line-height:1.6;padding-left:12px;border-left:1px solid rgba(110,135,170,.3)}
+  .ta-panel strong{font-size:15px;color:#1f3352;letter-spacing:.04em;white-space:nowrap}
+  .ta-pd{font-family:'Noto Sans KR','Noto Sans CJK KR',sans-serif;font-size:14px;font-weight:400;color:#2a3f5e;line-height:1.6;padding-left:14px;border-left:2.25px solid #1f3352;word-break:keep-all}.ta-pd .ta-go{display:block;margin-top:0;font-style:normal;color:#2f5b9a;font-size:13px;letter-spacing:0;font-weight:500}
 }
 @media (max-width:700px){.ta-panel{display:none!important}.ta-info{margin-top:12px}}
 
@@ -944,7 +944,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
 
 @media (min-width:701px){
   .ta-info{height:62px;min-height:0;box-sizing:border-box;overflow:hidden}
-  .ta-pd{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .ta-pd{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   #order.page{scrollbar-gutter:stable}
 }
 
@@ -1294,28 +1294,28 @@ body:has(#home.on) .mterm{opacity:0;pointer-events:none}
           <span class="race-no">I</span>
           <span class="race-name">인간</span><span class="race-en">Human</span>
           <span class="race-rule" aria-hidden="true"></span>
-          <span class="race-desc">세계 인구의 절반 이상을 차지하지만 추위에 가장 약해, 열탑의 온기가 닿는 도심에 모여 삽니다. 각인자는 드물어도 도시를 움직이는 손은 대부분 인간이며, 수가 많아 기사단 인원의 절반도 인간입니다.</span>
+          <span class="race-desc" data-full="세계 인구의 절반 이상을 차지하지만 추위에 가장 약해, 열탑의 온기가 닿는 도심에 모여 삽니다. 각인자는 드물어도 도시를 움직이는 손은 대부분 인간이며, 수가 많아 기사단 인원의 절반도 인간입니다.">세계 인구의 절반 이상을 차지하지만 추위에 가장 약해, 열탑의 온기가 닿는 도심에 모여 삽니다. 수가 많아 기사단 인원의 절반도 인간입니다.</span>
           <span class="race-more">분포 보기</span>
         </button>
         <button class="race" type="button" data-r="beast" aria-haspopup="dialog"><span class="rs rs4"><span class="g"><em>인구</em><b>27%</b></span><span class="g"><em>추위 내성</em><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span><span class="g"><em>평균 수명</em><b>95<small>세</small></b></span><span class="g"><em>각인자</em><span class="rg"><svg class="ring" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" class="t"/><circle cx="12" cy="12" r="9" class="v" stroke-dasharray="10.18 56.55"/></svg><b>18%</b></span></span></span><span class="rc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><path d="M12 12.2c2.3 0 4.3 2 4.3 4.3 0 1.9-1.4 2.9-2.6 2.9-.8 0-1.1-.4-1.7-.4s-.9.4-1.7.4c-1.2 0-2.6-1-2.6-2.9 0-2.3 2-4.3 4.3-4.3z"/><ellipse cx="6.6" cy="11.2" rx="1.6" ry="2.1" transform="rotate(-20 6.6 11.2)"/><ellipse cx="9.9" cy="7.5" rx="1.6" ry="2.2" transform="rotate(-6 9.9 7.5)"/><ellipse cx="14.1" cy="7.5" rx="1.6" ry="2.2" transform="rotate(6 14.1 7.5)"/><ellipse cx="17.4" cy="11.2" rx="1.6" ry="2.1" transform="rotate(20 17.4 11.2)"/></g></svg></span><span class="rc-orn" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <span class="race-no">II</span>
           <span class="race-name">수인</span><span class="race-en">Beastfolk</span>
           <span class="race-rule" aria-hidden="true"></span>
-          <span class="race-desc">털과 높은 체온 덕분에 한파 이후 사회의 전면에 나섰습니다. 북방 혈통의 극지형과 온화한 땅에서 온 온대형으로 나뉘며, 극지형은 맨몸으로도 눈보라를 견딥니다.<span class="race-look"> 추위에 약한 변온동물 수인은 없고, 털이 있는 포유류가 대부분입니다.</span></span>
+          <span class="race-desc" data-full="털과 높은 체온 덕분에 한파 이후 사회의 전면에 나섰습니다. 북방 혈통의 극지형과 온화한 땅에서 온 온대형으로 나뉘며, 극지형은 맨몸으로도 눈보라를 견딥니다.">털과 높은 체온 덕분에 한파 이후 사회의 전면에 나섰습니다. 북방 혈통의 극지형과 온화한 땅에서 온 온대형으로 나뉩니다.</span>
           <span class="race-more">분포 보기</span>
         </button>
         <button class="race" type="button" data-r="snow" aria-haspopup="dialog"><span class="rs rs4"><span class="g"><em>인구</em><b>4%</b></span><span class="g"><em>추위 내성</em><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span><span class="g"><em>평균 수명</em><b>300<small>세</small></b></span><span class="g"><em>각인자</em><span class="rg"><svg class="ring" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" class="t"/><circle cx="12" cy="12" r="9" class="v" stroke-dasharray="23.18 56.55"/></svg><b>41%</b></span></span></span><span class="rc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.6c2.5 3.4 6 6.4 6 10.8a6 6 0 0 1-12 0c0-4.4 3.5-7.4 6-10.8z"/><path transform="rotate(0 12 14.2)" d="M12 11.6V16.8"/><path transform="rotate(60 12 14.2)" d="M12 11.6V16.8"/><path transform="rotate(120 12 14.2)" d="M12 11.6V16.8"/></svg></span><span class="rc-orn" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <span class="race-no">III</span>
           <span class="race-name">설령족</span><span class="race-en">Snowborn</span>
           <span class="race-rule" aria-hidden="true"></span>
-          <span class="race-desc">서리별이 떨어진 밤, 불·물·바람·흙의 정령은 모두 사라지고 눈의 정령만 살아남았습니다. 설령족은 마지막 정령족의 후예로, 추위를 타지 않지만 열탑 가까이에서는 힘을 잃습니다.<span class="race-look"> 대부분 아름다운 외모에 뾰족한 귀, 눈처럼 흰 피부를 지녔습니다.</span></span>
+          <span class="race-desc" data-full="서리별이 떨어진 밤, 불·물·바람·흙의 정령은 모두 사라지고 눈의 정령만 살아남았습니다. 설령족은 마지막 정령족의 후예로, 추위를 타지 않지만 열탑 가까이에서는 힘을 잃습니다.">서리별이 떨어진 밤 홀로 살아남은 눈의 정령, 그 마지막 정령족의 후예입니다. 추위를 타지 않지만 열탑 가까이에서는 힘을 잃습니다.</span>
           <span class="race-more">분포 보기</span>
         </button>
         <button class="race" type="button" data-r="hearth" aria-haspopup="dialog"><span class="rs rs4"><span class="g"><em>인구</em><b>11%</b></span><span class="g"><em>추위 내성</em><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span><span class="g"><em>평균 수명</em><b>160<small>세</small></b></span><span class="g"><em>각인자</em><span class="rg"><svg class="ring" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" class="t"/><circle cx="12" cy="12" r="9" class="v" stroke-dasharray="5.09 56.55"/></svg><b>9%</b></span></span></span><span class="rc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.2c1.6 2.6 5 4.8 5 9a5 5 0 0 1-10 0c0-2.1 1-3.4 2.1-4.3.1 1.9 1 3 2.1 3.2-.4-2.6.1-5 .8-7.9z"/><path d="M12 19.2c-1.5 0-2.4-1-2.4-2.3 0-1.4 1.2-2.3 2.4-3.6 1.2 1.3 2.4 2.2 2.4 3.6 0 1.3-.9 2.3-2.4 2.3z"/></svg></span><span class="rc-orn" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <span class="race-no">IV</span>
           <span class="race-name">화로족</span><span class="race-en">Hearthkin</span>
           <span class="race-rule" aria-hidden="true"></span>
-          <span class="race-desc">거인족과, 거인과 인간의 피가 섞인 혼혈 종족은 한파 이전부터 함께 살아왔습니다. 거대한 거인족은 끝없는 한파 속에 모두 전멸했지만 혼혈 종족은 살아남아 지하 온천 도시에서 열탑과 기사의 무기를 벼리게 되었고, 그때부터 「화로족」이라 불리게 되었습니다.<span class="race-look"> 몸집과 뼈대가 크고 튼튼하며 피부도 두꺼운 편입니다.</span></span>
+          <span class="race-desc" data-full="거인족과, 거인과 인간의 피가 섞인 혼혈 종족은 한파 이전부터 함께 살아왔습니다. 거대한 거인족은 끝없는 한파 속에 모두 전멸했지만 혼혈 종족은 살아남아 지하 온천 도시에서 열탑과 기사의 무기를 벼리게 되었고, 그때부터 「화로족」이라 불리게 되었습니다.">거인과 인간의 피가 섞인 혼혈 종족입니다. 거인족이 한파에 전멸한 뒤, 지하 온천 도시에서 열탑과 기사의 무기를 벼립니다.</span>
           <span class="race-more">분포 보기</span>
         </button>
       </div>
@@ -1444,7 +1444,7 @@ body:has(#home.on) .mterm{opacity:0;pointer-events:none}
     el.addEventListener('pointermove',e=>{tip.style.left=e.clientX+'px';tip.style.top=e.clientY+'px'});
     el.addEventListener('pointerleave',()=>{tip.hidden=true});}
   function fill(k){cur=k;const r=R[k];
-    $('rm-no').textContent=r.no;$('rm-name').textContent=r.ko;$('rm-en').textContent=r.en;(function(){const c=document.querySelector('.race[data-r="'+k+'"] .race-desc').cloneNode(true);c.querySelectorAll('.race-look').forEach(x=>x.remove());$('rm-desc').textContent=c.textContent.trim();})();
+    $('rm-no').textContent=r.no;$('rm-name').textContent=r.ko;$('rm-en').textContent=r.en;(function(){const d=document.querySelector('.race[data-r="'+k+'"] .race-desc');$('rm-desc').textContent=(d.dataset.full||d.textContent).trim();})();
     $('rm-pop').innerHTML=r.pop+'<small>%</small>';
     const st=$('rm-stack'),sl=$('rm-stackl');st.innerHTML='';sl.innerHTML='';
     order.forEach(o=>{const i=document.createElement('i');i.style.flex=R[o].pop;if(o===k)i.className='on';tipOn(i,R[o].ko+' · 세계 인구의 '+R[o].pop+'%');st.appendChild(i);
@@ -1640,7 +1640,7 @@ body:has(#home.on) .mterm{opacity:0;pointer-events:none}
 (function(){const info=document.querySelector('.ta-info');if(!info)return;const hint=info.querySelector('.ta-hint'),pn=info.querySelector('.ta-panel');
   const desk=()=>matchMedia('(min-width:701px)').matches;let pinned=null;
   function show(it){pn.querySelector('.og-suf').textContent=it.querySelector('.og-suf').textContent;pn.querySelector('strong').textContent=it.querySelector('strong').textContent;
-    pn.querySelector('.ta-pd').textContent=it.querySelector('.ta-desc').textContent;pn.hidden=false;hint.hidden=true;pn.style.animation='none';void pn.offsetWidth;pn.style.animation='';}
+    pn.querySelector('.ta-pd').innerHTML=it.querySelector('.ta-desc').innerHTML;pn.hidden=false;hint.hidden=true;pn.style.animation='none';void pn.offsetWidth;pn.style.animation='';}
   function reset(){if(pinned){show(pinned);return}pn.hidden=true;hint.hidden=false;}
   document.querySelectorAll('.ta-it').forEach(it=>{
     it.addEventListener('mouseenter',()=>{if(desk())show(it)});it.addEventListener('mouseleave',()=>{if(desk())reset()});
@@ -2653,7 +2653,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.b
 /* (기존 앱 화면 스타일 유지) */
 .tm-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
 .tm-modal[hidden]{display:none}
-.tm-scrim{position:absolute;inset:0;background:rgba(214,223,234,.72)}html.tm-open body>:not(#tmModal):not(#tpModal):not(#iwModal):not(#snowfx):not(script):not(style){filter:blur(6px)}
+.tm-scrim{position:absolute;inset:0;background:rgba(214,223,234,.72)}html.tm-open body>:not(#tmModal):not(#tpModal):not(#iwModal):not(#lkModal):not(#snowfx):not(script):not(style){filter:blur(6px)}
 .tm-box{position:relative;width:min(520px,100%);background:linear-gradient(180deg,#fff,#eef2f7);border-radius:12px;padding:14px 16px 16px;box-shadow:0 30px 70px -30px rgba(42,60,88,.55),inset 0 0 0 1px rgba(110,135,170,.35),inset 0 0 0 5px #f6f8fb,inset 0 0 0 6px rgba(110,135,170,.18);animation:lkIn .45s cubic-bezier(.2,.7,.2,1) both;color:#1f3352;font-family:'Noto Sans KR','Noto Sans CJK KR',sans-serif}
 .tm-box .lk-hdr{padding-right:30px}
 .tm-box .rm-x{top:6px!important;right:8px!important}
@@ -4071,7 +4071,142 @@ m.addEventListener('click',async function(e){var b=e.target.closest('.idk-dl');i
  b.disabled=true;var old=b.textContent;b.textContent='만드는 중…';
  try{var blob=await render(card,2);window.__idkLastPng=blob;await save(blob,'WINTERBOUND_'+ttl+(nm?'_'+nm:'')+'_'+(face==='F'?'앞면':'뒷면')+'.png')}catch(err){toast('이미지를 만들지 못했습니다')}
  b.disabled=false;b.textContent=old});
-})();</script><script id="glow-bake">
+})();</script><style id="gift-big">
+#gift .page-inner{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(255,255,255,.66)!important}
+@media (min-width:701px){
+#gift.page{padding-right:48px!important}
+#gift .page-inner{max-width:1320px!important;margin-left:auto;margin-right:auto}
+#gift .mk-rule{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;text-align:left}
+#gift .mk-soc{font-size:14px}#gift .mk-soc em{font-size:12px}
+#gift .mk-rule-h b{font-size:15.5px}
+#gift .mk-rule-h em{font-size:12px}
+#gift .mk-rule p{font-size:14px;line-height:1.7;color:#55698a}
+#gift .t2-tab span{font-size:17px}
+#gift .t2-tab .sigil{width:70px;height:70px}
+#gift .mk-no{font-size:16px}
+#gift .mk-name{font-size:34px}
+#gift .mk-en{font-size:14px}
+#gift .mk-ov{font-size:16px;line-height:1.8;color:#34496b}
+#gift .mk-cols h4{font-size:14.5px}
+#gift .mk-cols li{font-size:14.5px;line-height:1.6}
+#gift .mk-cols p{font-size:14.5px;line-height:1.75;color:#4b5f7c}
+#gift .mk-cols .mk-wp{font-size:14.5px}
+#gift .t2-em .sigil{width:230px;height:230px}
+#gift .t2-panel{grid-template-columns:230px 1fr;gap:40px}
+}
+</style>
+<style id="order-big">
+@media (min-width:701px){
+#order.page{padding-right:48px!important;padding-left:calc(232px + 2vw)!important}
+#order .page-inner{max-width:1320px!important;margin-left:auto;margin-right:auto}
+#order .og-tag{font-size:12px;color:#eef3fa!important;background:#1f3352!important;letter-spacing:.24em;padding:4px 9px 4px 11px;border-radius:3px}
+#order .og-order h3{font-size:23px}
+#order .og-en{font-size:13.5px}
+#order .og-order p{font-size:15px;line-height:1.7;color:#3f5272}
+#order .rkc em{font-size:13px}
+#order .ta-c h4{font-size:23px}
+#order .ta-c .og-hj{font-size:12px}
+#order .ta-c{position:relative}
+#order .ta-info{margin-top:24px}
+#order .ta-c .og-no{position:absolute;top:10px;right:12px;margin:0;line-height:1;font-size:12px}
+#order .ta-sub{font-size:12.5px;color:#5f7698}
+#order .ta-it strong{font-size:14px}
+#order .ta-it .og-suf{width:21px;height:21px;font-size:12.5px}
+#order .ta-panel strong{font-size:16px}
+#order .ta-panel .og-suf{width:22px;height:22px;font-size:13px}
+#order .ta-pd{font-size:15px;line-height:1.5}
+#order .ta-pd .ta-go{font-size:14px}
+#order .ta-hint{font-size:13px}
+#order .fx-hint{font-size:12px}
+}
+</style>
+<style id="tm-big">@media (min-width:701px){.tm-dev{--w:330px;height:min(660px,calc(100svh - 70px))!important}.tm-dev.wide{--w:min(900px,calc(100vw - 80px))}}</style>
+<style id="lk-app">
+.lk-modal.in-dev{position:absolute;inset:0;z-index:60;padding:0;display:flex;align-items:center;justify-content:center;border-radius:inherit;overflow:hidden}
+.lk-modal.in-dev[hidden]{display:none}
+.in-dev .lk-scrim{background:rgba(236,241,247,.62);-webkit-backdrop-filter:blur(16px) saturate(1.1);backdrop-filter:blur(16px) saturate(1.1)}
+.in-dev .lk-box{width:auto;background:none!important;box-shadow:none!important;border:0;padding:0;border-radius:0;font-family:'Noto Sans KR','Noto Sans CJK KR',sans-serif}
+.in-dev .lk-box::after,.in-dev .lk-hdr,.in-dev .lk-box>.rm-x,.in-dev .lk-tag{display:none!important}
+.in-dev .lk-scr{background:none;border:0;box-shadow:none;padding:0;display:flex;flex-direction:column;align-items:center}
+.in-dev .lk-scr::before{display:none}
+.lk-ico{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#1f3352;box-shadow:0 6px 14px -6px rgba(20,30,50,.5)}
+.lk-ico svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.in-dev .lk-box h3{margin:12px 0 4px;font-family:'Noto Sans KR','Noto Sans CJK KR',sans-serif;font-weight:500;font-size:17px;letter-spacing:.02em;padding:0;color:#1f3352}
+.in-dev .lk-box p{margin:0 0 16px;font-size:12.5px;line-height:1.5;color:#5c6f8a}
+.in-dev .lk-form{width:160px}
+.in-dev .lk-cells{gap:12px}
+.in-dev .lk-cells i{width:12px;height:12px;border-radius:50%;border:1.5px solid #3f5679;background:transparent;box-shadow:none!important;transition:background .15s}
+.in-dev .lk-cells i.f{background:#1f3352;border-color:#1f3352}
+.in-dev .lk-cells i.f::after{display:none}
+.in-dev .lk-err{min-height:18px;margin-top:10px;font-size:12px}
+.lk-pad{display:grid;grid-template-columns:repeat(3,58px);gap:12px 20px;margin-top:6px}
+.lk-pad button{width:58px;height:58px;border-radius:50%;border:0;background:rgba(255,255,255,.72);box-shadow:inset 0 0 0 1px rgba(110,135,170,.25),0 2px 6px -3px rgba(20,30,50,.25);font:400 22px/1 'Noto Sans KR','Noto Sans CJK KR',sans-serif;color:#1f3352;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:background .12s,transform .12s;-webkit-tap-highlight-color:transparent}
+.lk-pad button:active{background:rgba(31,51,82,.16);transform:scale(.95)}
+.lk-pad button.lk-del,.lk-pad button.lk-cancel{background:none;box-shadow:none;font-size:13px;color:#3f5679}
+.lk-pad button.lk-del svg{width:24px;height:24px;stroke:#3f5679;fill:none;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.in-dev .lk-foot{margin-top:16px;padding:0;border:0;font-size:10.5px;letter-spacing:.12em;color:#8a9ab0}
+.lk-pad,.lk-ico{display:none}
+.in-dev .lk-pad{display:grid}.in-dev .lk-ico{display:flex}
+/* 공직자 단말기(어두운 화면) */
+.tm-dev.org .in-dev .lk-scrim{background:rgba(14,19,28,.6)}
+.tm-dev.org .in-dev .lk-ico{background:#e6eef8}.tm-dev.org .in-dev .lk-ico svg{stroke:#1f3352}
+.tm-dev.org .in-dev .lk-box h3{color:#eef3fa}
+.tm-dev.org .in-dev .lk-box p{color:#a9b6c8}
+.tm-dev.org .in-dev .lk-cells i{border-color:#c9d4e3}
+.tm-dev.org .in-dev .lk-cells i.f{background:#eef3fa;border-color:#eef3fa}
+.tm-dev.org .lk-pad button{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);color:#eef3fa}
+.tm-dev.org .lk-pad button:active{background:rgba(255,255,255,.24)}
+.tm-dev.org .lk-pad button.lk-del,.tm-dev.org .lk-pad button.lk-cancel{background:none;box-shadow:none;color:#c9d4e3}
+.tm-dev.org .lk-pad button.lk-del svg{stroke:#c9d4e3}
+.tm-dev.org .in-dev .lk-err{color:#ff9aa5}
+.tm-dev.org .in-dev .lk-foot{color:#7f8da2}
+@media (max-width:700px){.lk-pad{grid-template-columns:repeat(3,54px);gap:10px 18px}.lk-pad button{width:54px;height:54px;font-size:20px}}
+@media (max-height:640px){.lk-pad{grid-template-columns:repeat(3,48px);gap:8px 16px}.lk-pad button{width:48px;height:48px;font-size:19px}.in-dev .lk-box p{margin-bottom:10px}.in-dev .lk-foot{display:none}}
+
+/* 잠금 화면: 보안 터미널 + 붉은 경보 */
+
+.tm-dev .lk-modal.in-dev .lk-scrim{background:rgba(10,4,6,.97)!important;backdrop-filter:none!important}
+.tm-dev .lk-modal.in-dev .lk-scrim::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,59,74,.06) 0 1px,transparent 1px 3px)}
+.tm-dev .lk-modal.in-dev .lk-scrim::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 2px rgba(255,59,74,.6),inset 0 0 60px rgba(255,59,74,.28);animation:lkBlink 1.2s steps(2) infinite}
+.tm-dev .lk-modal.in-dev::before{content:"> SECURE NODE 04 // CLEARANCE LV.4 REQUIRED\A> 서리별 연구원 보안 기록 · 무단 접근 시 추적됨";white-space:pre;position:absolute;left:22px;top:18px;z-index:2;font:500 11px/1.7 'Consolas','DejaVu Sans Mono',monospace;color:#ff3b4a;letter-spacing:.04em}
+.tm-dev .lk-modal.in-dev::after{content:"REC ●  TRACKING";position:absolute;right:22px;top:18px;z-index:2;font:600 11px/1.7 'Consolas','DejaVu Sans Mono',monospace;letter-spacing:.14em;color:#ff3b4a;animation:lkBlink 1s steps(2) infinite}
+.tm-dev .lk-modal.in-dev .lk-box{font-family:'Consolas','DejaVu Sans Mono',monospace!important}
+.tm-dev .lk-modal.in-dev .lk-ico{background:none!important;border:1px solid #ff3b4a;border-radius:2px!important;box-shadow:0 0 14px rgba(255,59,74,.45)!important}
+.tm-dev .lk-modal.in-dev .lk-ico svg{stroke:#ff3b4a!important}
+.tm-dev .lk-modal.in-dev .lk-box h3{font-family:'Consolas','DejaVu Sans Mono','Noto Sans KR',monospace!important;color:#ff3b4a!important;font-size:15px!important;letter-spacing:.18em!important;font-weight:600!important}
+.tm-dev .lk-modal.in-dev .lk-box h3::before{content:"[ "}.tm-dev .lk-modal.in-dev .lk-box h3::after{content:" ]"}
+.tm-dev .lk-modal.in-dev .lk-box p{color:#ff8a94!important;font-family:'Consolas','DejaVu Sans Mono','Noto Sans KR',monospace!important}
+.tm-dev .lk-modal.in-dev .lk-cells i{border-radius:0!important;width:14px!important;height:4px!important;border:0!important;background:#3a1418!important}.tm-dev .lk-modal.in-dev .lk-cells i.f{background:#ff3b4a!important;box-shadow:0 0 8px #ff3b4a!important}
+.tm-dev .lk-modal.in-dev .lk-pad button{border-radius:2px!important;background:rgba(255,59,74,.06)!important;box-shadow:inset 0 0 0 1px rgba(255,59,74,.4)!important;color:#ffd6da!important;font-family:'Consolas','DejaVu Sans Mono',monospace!important}
+.tm-dev .lk-modal.in-dev .lk-pad button:active{background:rgba(255,59,74,.22)!important}
+.tm-dev .lk-modal.in-dev .lk-pad button.lk-del,.tm-dev .lk-modal.in-dev .lk-pad button.lk-cancel{background:none!important;box-shadow:none!important;color:#ff8a94!important}.tm-dev .lk-modal.in-dev .lk-pad button.lk-del svg{stroke:#ff8a94!important}
+.tm-dev .lk-modal.in-dev .lk-err{color:#ff3b4a!important}
+.tm-dev .lk-modal.in-dev .lk-foot{color:#a8444e!important;font-family:'Consolas','DejaVu Sans Mono','Noto Sans KR',monospace!important}
+@keyframes lkBlink{50%{opacity:.35}}
+
+@media (max-width:700px){
+.tm-dev .lk-modal.in-dev::before{content:"> SECURE NODE 04 // LV.4\A> 무단 접근 시 추적됨";left:18px;top:16px;font-size:10px}
+.tm-dev .lk-modal.in-dev::after{top:auto;bottom:16px;right:0;left:0;text-align:center;font-size:10px}
+}
+</style>
+<script id="lk-app-js">
+(function(){var lk=document.getElementById('lkModal');if(!lk)return;var home=lk.parentNode,inp=lk.querySelector('input'),scr=lk.querySelector('.lk-scr'),cells=lk.querySelector('.lk-form');
+var ico=document.createElement('div');ico.className='lk-ico';ico.innerHTML='<svg viewBox="0 0 24 24"><rect x="5.5" y="10.5" width="13" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>';scr.insertBefore(ico,scr.firstChild);
+var pad=document.createElement('div');pad.className='lk-pad';
+'1 2 3 4 5 6 7 8 9 c 0 d'.split(' ').forEach(function(k){var b=document.createElement('button');b.type='button';
+  if(k==='c'){b.className='lk-cancel';b.textContent='취소';b.addEventListener('click',function(){lk.querySelector('.lk-scrim').click()})}
+  else if(k==='d'){b.className='lk-del';b.setAttribute('aria-label','지우기');b.innerHTML='<svg viewBox="0 0 24 24"><path d="M9 6h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-5-6z"/><path d="M12 10l4 4M16 10l-4 4"/></svg>';b.addEventListener('click',function(){inp.value=inp.value.slice(0,-1);inp.dispatchEvent(new Event('input'))})}
+  else{b.textContent=k;b.addEventListener('click',function(){if(inp.value.length>=6)return;inp.value+=k;inp.dispatchEvent(new Event('input'))})}
+  pad.appendChild(b)});
+var err=lk.querySelector('.lk-err');err.parentNode.insertBefore(pad,err.nextSibling);
+function place(){var tm=document.getElementById('tmModal'),s=document.querySelector('#tmDev .tm-scr');
+  if(!lk.hidden&&tm&&!tm.hidden&&s&&document.getElementById('tmDev').classList.contains('cit')){lk.hidden=true;return}
+  if(!lk.hidden&&tm&&!tm.hidden&&s){if(lk.parentNode!==s){s.appendChild(lk)}lk.classList.add('in-dev')}
+  else if(lk.hidden&&lk.classList.contains('in-dev')){lk.classList.remove('in-dev');home.appendChild(lk)}}
+new MutationObserver(place).observe(lk,{attributes:true,attributeFilter:['hidden']});
+})();
+</script>
+<script id="glow-bake">
 (function(){var em=document.querySelector('.emblem'),ty=document.querySelector('.emblem-typo');if(!em)return;
 function bake(img){return new Promise(function(res){function go(){var w=img.naturalWidth,h=img.naturalHeight,d=img.getBoundingClientRect().width||600,k=w/d,sg=15*k,p=Math.ceil(sg*3.2),B=w+2*p+50;
   var c=document.createElement('canvas');c.width=w+2*p;c.height=h+2*p;var x=c.getContext('2d');x.shadowColor='rgba(255,255,255,.75)';x.shadowBlur=sg*2;x.shadowOffsetX=-B;x.drawImage(img,p+B,p);
