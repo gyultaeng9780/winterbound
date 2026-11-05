@@ -1600,9 +1600,9 @@ body:has(#continent.on.desk-on) #snowfx{opacity:0}
     const cl=svg.cloneNode(true);cl.removeAttribute('aria-label');cl.setAttribute('aria-hidden','true');cl.classList.add('rg-svg');
     cl.querySelectorAll('[id]').forEach(e=>{if(e.tagName!=='linearGradient'&&e.tagName!=='radialGradient'&&e.tagName!=='pattern'&&e.tagName!=='clipPath'&&e.tagName!=='mask'&&e.tagName!=='filter')e.removeAttribute('id')});
     cl.querySelectorAll('.pin').forEach(p=>{p.removeAttribute('tabindex');p.removeAttribute('role');p.classList.toggle('on',p.dataset.p===k)});
-    const w=560,h=w*0.525;cl.setAttribute('viewBox',(cx-w*.42)+' '+(cy-h/2)+' '+w+' '+h);cl.setAttribute('preserveAspectRatio','xMidYMid slice');
-    rg.classList.toggle('ph',!!RGPH[k]);rgImg.innerHTML='';if(RGPH[k]){const im=new Image();im.className='rg-photo';im.alt='';im.src=RGPH[k];rgImg.appendChild(im);rgImg.classList.add('has-photo')}else{rgImg.classList.remove('has-photo');rgImg.appendChild(cl);}
-    rgCard.innerHTML=RGPH[k]?'<span class="ap-type">'+esc(r.t)+'</span><h3><span class="rk">'+esc(r.ko)+'</span><span class="re">'+esc(r.en)+'</span></h3><p>'+esc(r.s||r.d)+'</p>'+(r.x?'<p class="rx">'+esc(r.x)+'</p>':'')+'<button type="button" class="rg-mb" aria-expanded="false" aria-controls="rgMore">자세히 <svg viewBox="0 0 10 10"><path d="M2 3.5L5 6.5 8 3.5"/></svg></button>':'<span class="ap-type">'+esc(r.t)+'</span><h3>'+esc(r.ko)+'</h3><span class="ap-en">'+esc(r.en)+'</span><p>'+esc(r.d)+'</p><ul>'+r.b.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+    const w=560,h=w*0.525;cl.setAttribute('viewBox',RGPH[k]?((cx-w*.42)+' '+(cy-h/2)+' '+w+' '+h):((cx-w*.5)+' '+(cy-h*.3)+' '+w+' '+h));cl.setAttribute('preserveAspectRatio','xMidYMid slice');
+    rg.classList.add('ph');rg.classList.toggle('nophoto',!RGPH[k]);rgImg.innerHTML='';if(RGPH[k]){const im=new Image();im.className='rg-photo';im.alt='';im.src=RGPH[k];rgImg.appendChild(im);rgImg.classList.add('has-photo')}else{rgImg.classList.remove('has-photo');rgImg.appendChild(cl);}
+    rgCard.innerHTML=true?'<span class="ap-type">'+esc(r.t)+'</span><h3><span class="rk">'+esc(r.ko)+'</span><span class="re">'+esc(r.en)+'</span></h3><p>'+esc(r.s||r.d)+'</p>'+(r.x?'<p class="rx">'+esc(r.x)+'</p>':'')+'<button type="button" class="rg-mb" aria-expanded="false" aria-controls="rgMore">자세히 <svg viewBox="0 0 10 10"><path d="M2 3.5L5 6.5 8 3.5"/></svg></button>':'<span class="ap-type">'+esc(r.t)+'</span><h3>'+esc(r.ko)+'</h3><span class="ap-en">'+esc(r.en)+'</span><p>'+esc(r.d)+'</p><ul>'+r.b.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
     rg.hidden=false;window.rgFitEn&&rgFitEn();window.rgAnim&&rgAnim();requestAnimationFrame(()=>rg.classList.add('in'));rg.querySelector('.rg-x').focus({preventScroll:true});}
   function closeRegion(){rg.classList.remove('in');setTimeout(()=>{rg.hidden=true;window.rgMoreReset&&rgMoreReset();if(rgFrom)rgFrom.focus({preventScroll:true})},350);}
   rg.querySelector('.rg-back').addEventListener('click',closeRegion);rg.querySelector('.rg-x').addEventListener('click',closeRegion);
@@ -5732,7 +5732,7 @@ new MutationObserver(function(){requestAnimationFrame(f)}).observe(l,{childList:
 </style><script id="prot-dn-js">(function(){var l=document.getElementById('bxList');if(!l)return;var busy=false;
 function f(){if(busy)return;busy=true;[].forEach.call(l.querySelectorAll('.bx-it.prot'),function(it){it.classList.remove('prot-dn');var b=it.querySelector('.bx-tx b');if(b&&b.scrollWidth>b.clientWidth+1)it.classList.add('prot-dn')});busy=false}
 new MutationObserver(function(){requestAnimationFrame(f)}).observe(l,{childList:true,attributes:true,attributeFilter:['class']});new ResizeObserver(function(){requestAnimationFrame(f)}).observe(l);f()})();</script>
-<style id="rg-photo-x">.rg-img.has-photo~.rg-x{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 4px 12px -6px rgba(10,20,40,.5)}</style>
+<style id="rg-photo-x">.rg-img.has-photo~.rg-x,.rgmodal.nophoto .rg-x{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 4px 12px -6px rgba(10,20,40,.5)}</style>
 <style id="rg-photo-v1">
 .rgmodal.ph .rg-fade{display:none}
 .rgmodal.ph .rg-img{inset:0!important;height:auto!important}
@@ -5876,6 +5876,13 @@ document.addEventListener('click',function(ev){var b=ev.target.closest('.rgmodal
 body:has(#continent.on) .mterm b{color:#eef3fa!important;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 body:has(#continent.on) .mterm small{color:rgba(230,238,248,.7)!important;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 body:has(#continent.on) .mterm .mt-ic{background:rgba(255,255,255,.82)!important;border-color:rgba(255,255,255,.7)}
+</style>
+<style id="rg-blur-fix">.rg-box,.rm-card,.bs-card{will-change:transform,opacity}</style>
+<style id="rg-nophoto">
+.rgmodal.nophoto .rg-img{background:#0d1522}
+.rgmodal.nophoto .rg-img svg{filter:invert(1) hue-rotate(180deg) brightness(.62) saturate(.7) contrast(1.05)}
+.rgmodal.nophoto .rg-img::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 70% at 50% 40%,rgba(40,70,120,.18),rgba(6,10,18,.55))}
+.rgmodal.nophoto .rg-img .pin.on .pl,.rgmodal.nophoto .rg-img .pin .pl{opacity:0}
 </style>
 <style id="perf-pause">body:not(:has(#home.on)) .emblem-float,body:not(:has(#home.on)) .emblem-shine{animation-play-state:paused}
 body:not(:has(#continent.on)) .desk-steam{animation-play-state:paused}
