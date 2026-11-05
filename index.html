@@ -5734,7 +5734,12 @@ new MutationObserver(function(){requestAnimationFrame(f)}).observe(l,{childList:
 </style><script id="prot-dn-js">(function(){var l=document.getElementById('bxList');if(!l)return;var busy=false;
 function f(){if(busy)return;busy=true;[].forEach.call(l.querySelectorAll('.bx-it.prot'),function(it){it.classList.remove('prot-dn');var b=it.querySelector('.bx-tx b');if(b&&b.scrollWidth>b.clientWidth+1)it.classList.add('prot-dn')});busy=false}
 new MutationObserver(function(){requestAnimationFrame(f)}).observe(l,{childList:true,attributes:true,attributeFilter:['class']});new ResizeObserver(function(){requestAnimationFrame(f)}).observe(l);f()})();</script>
-<style id="rg-photo-x">.rg-img.has-photo~.rg-x,.rgmodal.nophoto .rg-x{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 4px 12px -6px rgba(10,20,40,.5)}</style>
+<style id="rg-photo-x">.rgmodal.ph .rg-x{background:none!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.rgmodal.ph .rg-x svg.xx{stroke:rgba(255,255,255,.85)!important;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+.rgmodal.ph .rg-x .xx rect{fill:none!important;stroke:rgba(255,255,255,.85)!important}
+.rgmodal.ph .rg-x:hover svg.xx,.rgmodal.ph .rg-x:focus-visible svg.xx{stroke:#fff!important}
+.rgmodal.ph .rg-x:hover .xx rect,.rgmodal.ph .rg-x:focus-visible .xx rect{fill:rgba(255,255,255,.12)!important;stroke:#fff!important}
+.rgmodal.ph .rg-x:focus-visible{outline-color:#fff}</style>
 <style id="rg-photo-v1">
 .rgmodal.ph .rg-fade{display:none}
 .rgmodal.ph .rg-img{inset:0!important;height:auto!important}
@@ -5873,10 +5878,11 @@ function panel(k){var r=M[k];if(!r)return null;var warm=r[4]>0,T=(warm?'+':'−'
  var d=document.createElement('div');d.className='rg-more';d.id='rgMore';
  d.innerHTML='<div class="mh"><span class="mt">여행자 수첩</span></div><p class="md">'+e(r[0])+'</p><div class="grid"><div class="c-pop"><span class="lb">인구</span><div class="big">'+e(r[1])+'<small>명</small></div><span class="sub">'+e(r[2])+'</span></div><div class="c-race"><span class="lb">종족 구성</span>'+race+'</div><div class="c-wx"><span class="lb">평균 기온</span><div class="wx'+(warm?' warm':'')+'">'+(warm?HEAT:SNOW)+'<div><div class="wxt">'+T+'<sup>°C</sup></div><span class="sub" style="margin-top:4px">'+e(r[5])+'</span></div></div></div></div>';return d}
 function closeMore(rg,anim){var m=rg.querySelector('.rg-more');if(m){if(anim){m.classList.add('closing');setTimeout(function(){m.remove();if(!rg.querySelector('.rg-more'))rg.classList.remove('mshow')},420)}else{m.remove();rg.classList.remove('mshow')}}else rg.classList.remove('mshow');var b=rg.querySelector('.rg-mb');if(b){b.setAttribute('aria-expanded','false');b.firstChild.nodeValue='자세히 '}}
-window.rgMoreReset=function(){var rg=document.querySelector('.rgmodal');if(rg)closeMore(rg)};window.rgMoreShow=function(){var rg=document.querySelector('.rgmodal');if(!rg)return;rg.querySelectorAll('.rg-more').forEach(function(x){x.remove()});var p=panel(rg.dataset.k);if(!p)return;p.classList.add('static');rg.querySelector('.rg-box').after(p);rg.classList.add('mshow');rg.scrollTop=0};
+function rgWin(rg){var w=rg.querySelector('.rg-win');if(!w){var bx=rg.querySelector('.rg-box');w=document.createElement('div');w.className='rg-win';bx.parentNode.insertBefore(w,bx);w.appendChild(bx)}return w}
+window.rgMoreReset=function(){var rg=document.querySelector('.rgmodal');if(rg)closeMore(rg)};window.rgMoreShow=function(){var rg=document.querySelector('.rgmodal');if(!rg)return;rg.querySelectorAll('.rg-more').forEach(function(x){x.remove()});var p=panel(rg.dataset.k);if(!p)return;p.classList.add('static');rgWin(rg).appendChild(p);rg.classList.add('mshow');rg.scrollTop=0};
 document.addEventListener('click',function(ev){var b=ev.target.closest('.rgmodal .rg-mb');if(!b)return;ev.preventDefault();ev.stopPropagation();var rg=b.closest('.rgmodal');
  if(rg.querySelector('.rg-more:not(.closing)')){closeMore(rg,true);return}rg.querySelectorAll('.rg-more').forEach(function(x){x.remove()});
- var p=panel(rg.dataset.k);if(!p)return;rg.querySelector('.rg-box').after(p);rg.classList.add('mshow');b.setAttribute('aria-expanded','true');b.firstChild.nodeValue='접기 ';
+ var p=panel(rg.dataset.k);if(!p)return;rgWin(rg).appendChild(p);rg.classList.add('mshow');b.setAttribute('aria-expanded','true');b.firstChild.nodeValue='접기 ';
  setTimeout(function(){if(rg.scrollHeight>rg.clientHeight+2)rg.scrollTo({top:rg.scrollHeight,behavior:'smooth'})},60)},true);
 })();</script>
 <style id="home-credit-top">#home .credit{bottom:auto;top:9%}</style>
@@ -5904,6 +5910,15 @@ body:has(#continent.on) .mterm .mt-ic{background:rgba(255,255,255,.82)!important
  .rgmodal.mshow{--rgw:min(1060px,100%,calc((100svh - 11vh - 40px - 196px) * 1.905))}
  .rgmodal.mshow .rg-box,.rgmodal.mshow .rg-more{width:var(--rgw)}
 }
+</style>
+<style id="rg-win-css">
+.rg-win{position:relative;z-index:1;flex:none;width:min(1060px,100%);opacity:0;transform:translateY(14px) scale(.985);transition:opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform,opacity;box-shadow:0 50px 100px -30px rgba(8,14,28,.75),0 22px 40px -18px rgba(8,14,28,.55),0 6px 14px -6px rgba(8,14,28,.35)}
+.rgmodal.in .rg-win{opacity:1;transform:none}
+.rg-win .rg-box{width:100%!important;opacity:1!important;transform:none!important;transition:none!important;box-shadow:none!important;will-change:auto}
+.rg-win .rg-more{width:100%!important;opacity:1!important;transform:none!important;transition:none!important;box-shadow:none!important;clip-path:none!important}
+.rgmodal:not(.in) .rg-win .rg-more{opacity:1!important;transform:none!important}
+@media (min-width:821px){.rgmodal.mshow .rg-win{width:var(--rgw)}}
+@media (prefers-reduced-motion:reduce){.rg-win{transition:none}}
 </style>
 <style id="perf-pause">body:not(:has(#home.on)) .emblem-float,body:not(:has(#home.on)) .emblem-shine{animation-play-state:paused}
 body:not(:has(#continent.on)) .desk-steam{animation-play-state:paused}
