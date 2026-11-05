@@ -1449,7 +1449,7 @@ body:has(#continent.on.desk-on) #snowfx{opacity:0}
   const cv=document.createElement('canvas');cv.id='snowfx';document.body.appendChild(cv);
   const ctx=cv.getContext('2d');let W,H,dpr,flakes=[],crys=[];
   function size(){dpr=1;W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.round(W*H/11000);while(flakes.length<n)flakes.push(mk(true));flakes.length=n;}
+    const n=Math.round(W*H/15500);while(flakes.length<n)flakes.push(mk(true));flakes.length=n;}
   function mk(any){const z=Math.random();return{x:Math.random()*W,y:any?Math.random()*H:-8,r:.8+z*2.1,z,op:.2+Math.random()*.75,vy:.18+z*.62,ph:Math.random()*6.28,sw:.3+Math.random()*.6};}
   addEventListener('resize',size);size();
   let lx=null,ly=null;
@@ -5542,12 +5542,14 @@ Promise.all([bake(em),ty?bake(ty):null]).then(function(r){if(!r[0])return;
   document.documentElement.classList.add('glow-baked')})})();
 </script>
 <script id="bg-freeze">
-(function(){var H=document.documentElement,ids=['tmModal','iwModal','rmodal','kmodal','rkmodal','pmodal'],paused=[];
-function upd(){var on=ids.some(function(i){var e=document.getElementById(i);return e&&!e.hidden});
+(function(){var H=document.documentElement,ids=['tmModal','iwModal','rmodal','kmodal','rkmodal','pmodal','bsModal','lkModal'],paused=[];
+function upd(){var on=ids.some(function(i){var e=document.getElementById(i);return e&&!e.hidden})||!!document.querySelector('.rgmodal:not([hidden])');
   var tm=document.getElementById('tmModal');H.classList.toggle('tm-open',!!(tm&&!tm.hidden));if(on===H.classList.contains('bg-freeze'))return;H.classList.toggle('bg-freeze',on);
-  if(on){paused=document.getAnimations().filter(function(a){var t=a.effect&&a.effect.target;return a.playState==='running'&&t&&!(t.closest&&t.closest('#tmModal,#iwModal,#tpModal,.rmodal,#pmodal'))});paused.forEach(function(a){a.pause()})}
+  if(on){paused=document.getAnimations().filter(function(a){var t=a.effect&&a.effect.target;return a.playState==='running'&&t&&!(t.closest&&t.closest('#tmModal,#iwModal,#tpModal,.rmodal,#pmodal,.rgmodal,#bsModal,#lkModal'))});paused.forEach(function(a){a.pause()})}
   else{paused.forEach(function(a){try{a.play()}catch(_){}});paused=[]}}
-var mo=new MutationObserver(upd);ids.forEach(function(i){var e=document.getElementById(i);if(e)mo.observe(e,{attributes:true,attributeFilter:['hidden']})});})();
+var mo=new MutationObserver(upd);ids.forEach(function(i){var e=document.getElementById(i);if(e)mo.observe(e,{attributes:true,attributeFilter:['hidden']})});
+function hookRg(){var r=document.querySelector('.rgmodal');if(r){mo.observe(r,{attributes:true,attributeFilter:['hidden']});return true}return false}
+if(!hookRg()){var t=setInterval(function(){if(hookRg())clearInterval(t)},400)}})();
 </script>
 
 <style>.sh-dmg-in{grid-template-columns:repeat(2,1fr)}.sh-dmg-in div:first-child,.sh-dmg-in div:last-child{background:rgba(255,255,255,.85)}.sh-dmg-in div{border-left:3px solid #1b2433}.sh-dmg-in b{color:#1b2433}@media (max-width:560px){.sh-dmg-in{grid-template-columns:1fr}}</style><style>#tmDev .bx-sb .hr-town-in b{color:#9fb6d6;font-family:inherit;font-weight:700;font-size:11.5px;letter-spacing:.04em;margin-bottom:2px}#tmDev .bx-sb .hr-town-in p{margin:0}</style><style id="bx-art-css">#tmDev .bx-detail .bx-hero .bx-artbox{position:absolute;inset:0;z-index:0;overflow:hidden;border-radius:inherit}
@@ -5837,7 +5839,16 @@ window.rgAnim=function(){var rg=document.querySelector('.rgmodal');if(!rg||!rg.c
 
 body:has(.rgmodal.mshow:not([hidden])) .mterm,body:has(.rgmodal.mshow:not([hidden])) .desk-hint{visibility:hidden}
 @keyframes rgMore{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
-.rg-more{animation:rgMore .45s cubic-bezier(.2,.7,.2,1) both}
+.rg-more{clip-path:inset(0 0 0 0);transition:clip-path .45s cubic-bezier(.2,.7,.2,1),opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1);animation:rgMoreOpen .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rgMoreOpen{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.rg-more>*{animation:rgMoreIn .4s ease .12s both}
+@keyframes rgMoreIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.rg-more.closing{animation:none;clip-path:inset(0 0 100% 0)}
+.rgmodal:not(.in) .rg-more{opacity:0;transform:translateY(14px) scale(.985)}
+.rg-more{background:linear-gradient(180deg,rgba(7,10,17,.86),rgba(7,11,18,.92) 46px,rgba(8,12,20,.86))!important}
+.rg-more::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--grain) repeat;background-size:256px;opacity:.3;mix-blend-mode:multiply}
+.rgmodal.mshow .rg-ov{background:linear-gradient(0deg,rgba(7,10,17,.86) 0,rgba(6,9,15,.6) 14%,rgba(6,9,15,.3) 30%,transparent 46%)!important}
+.rgmodal.mshow.nophoto .rg-img::after{background:radial-gradient(ellipse 70% 70% at 50% 40%,rgba(40,70,120,.18),rgba(6,10,18,.55)),linear-gradient(0deg,rgba(7,10,17,.86),transparent 30%)}
 .rg-more .rbar.none{background:repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 4px,transparent 4px 8px)}
 .rgmodal .rg-card .rg-mb{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:4px 10px 4px calc(10px + .22em);font-size:11.5px;letter-spacing:.22em;color:#f2d495;text-shadow:0 1px 3px rgba(0,0,0,.9);pointer-events:auto}
 .rgmodal .rg-card .rg-mb svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:1.4;transition:transform .3s}
@@ -5858,10 +5869,10 @@ function panel(k){var r=M[k];if(!r)return null;var warm=r[4]>0,T=(warm?'+':'−'
  var race=r[3].length?'<div class="rbar">'+r[3].map(function(x){return '<i style="width:'+x[1]+'%;background:'+RC[x[0]]+'"></i>'}).join('')+'</div><div class="rlg">'+r[3].map(function(x){return '<span style="--c:'+RC[x[0]]+'">'+e(x[0])+' <b>'+x[1]+'%</b></span>'}).join('')+'</div>':'<div class="rbar none"></div><div class="rlg"><span style="--c:rgba(255,255,255,.3)">상주 인원 없음</span></div>';
  var d=document.createElement('div');d.className='rg-more';d.id='rgMore';
  d.innerHTML='<div class="mh"><span class="mt">여행자 수첩</span></div><p class="md">'+e(r[0])+'</p><div class="grid"><div class="c-pop"><span class="lb">인구</span><div class="big">'+e(r[1])+'<small>명</small></div><span class="sub">'+e(r[2])+'</span></div><div class="c-race"><span class="lb">종족 구성</span>'+race+'</div><div class="c-wx"><span class="lb">평균 기온</span><div class="wx'+(warm?' warm':'')+'">'+(warm?HEAT:SNOW)+'<div><div class="wxt">'+T+'<sup>°C</sup></div><span class="sub" style="margin-top:4px">'+e(r[5])+'</span></div></div></div></div>';return d}
-function closeMore(rg){var m=rg.querySelector('.rg-more');if(m)m.remove();rg.classList.remove('mshow');var b=rg.querySelector('.rg-mb');if(b){b.setAttribute('aria-expanded','false');b.firstChild.nodeValue='자세히 '}}
+function closeMore(rg,anim){var m=rg.querySelector('.rg-more');if(m){if(anim){m.classList.add('closing');setTimeout(function(){m.remove();if(!rg.querySelector('.rg-more'))rg.classList.remove('mshow')},420)}else{m.remove();rg.classList.remove('mshow')}}else rg.classList.remove('mshow');var b=rg.querySelector('.rg-mb');if(b){b.setAttribute('aria-expanded','false');b.firstChild.nodeValue='자세히 '}}
 window.rgMoreReset=function(){var rg=document.querySelector('.rgmodal');if(rg)closeMore(rg)};
 document.addEventListener('click',function(ev){var b=ev.target.closest('.rgmodal .rg-mb');if(!b)return;ev.preventDefault();ev.stopPropagation();var rg=b.closest('.rgmodal');
- if(rg.classList.contains('mshow')){closeMore(rg);return}
+ if(rg.querySelector('.rg-more:not(.closing)')){closeMore(rg,true);return}rg.querySelectorAll('.rg-more').forEach(function(x){x.remove()});
  var p=panel(rg.dataset.k);if(!p)return;rg.querySelector('.rg-box').after(p);rg.classList.add('mshow');b.setAttribute('aria-expanded','true');b.firstChild.nodeValue='접기 ';
  setTimeout(function(){if(rg.scrollHeight>rg.clientHeight+2)rg.scrollTo({top:rg.scrollHeight,behavior:'smooth'})},60)},true);
 })();</script>
@@ -5884,6 +5895,7 @@ body:has(#continent.on) .mterm .mt-ic{background:rgba(255,255,255,.82)!important
 .rgmodal.nophoto .rg-img::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 70% at 50% 40%,rgba(40,70,120,.18),rgba(6,10,18,.55))}
 .rgmodal.nophoto .rg-img .pin.on .pl,.rgmodal.nophoto .rg-img .pin .pl{opacity:0}
 </style>
+<style id="perf-ic">.ic-masc{animation-iteration-count:4!important}</style>
 <style id="perf-pause">body:not(:has(#home.on)) .emblem-float,body:not(:has(#home.on)) .emblem-shine{animation-play-state:paused}
 body:not(:has(#continent.on)) .desk-steam{animation-play-state:paused}
 .emblem-float{will-change:transform}</style>
