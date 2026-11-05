@@ -1602,8 +1602,8 @@ body:has(#continent.on.desk-on) #snowfx{opacity:0}
     cl.querySelectorAll('.pin').forEach(p=>{p.removeAttribute('tabindex');p.removeAttribute('role');p.classList.toggle('on',p.dataset.p===k)});
     const w=560,h=w*0.525;cl.setAttribute('viewBox',RGPH[k]?((cx-w*.42)+' '+(cy-h/2)+' '+w+' '+h):((cx-w*.5)+' '+(cy-h*.3)+' '+w+' '+h));cl.setAttribute('preserveAspectRatio','xMidYMid slice');
     rg.classList.add('ph');rg.classList.toggle('nophoto',!RGPH[k]);rgImg.innerHTML='';if(RGPH[k]){const im=new Image();im.className='rg-photo';im.alt='';im.src=RGPH[k];rgImg.appendChild(im);rgImg.classList.add('has-photo')}else{rgImg.classList.remove('has-photo');rgImg.appendChild(cl);}
-    rgCard.innerHTML=true?'<span class="ap-type">'+esc(r.t)+'</span><h3><span class="rk">'+esc(r.ko)+'</span><span class="re">'+esc(r.en)+'</span></h3><p>'+esc(r.s||r.d)+'</p>'+(r.x?'<p class="rx">'+esc(r.x)+'</p>':'')+'<button type="button" class="rg-mb" aria-expanded="false" aria-controls="rgMore">자세히 <svg viewBox="0 0 10 10"><path d="M2 3.5L5 6.5 8 3.5"/></svg></button>':'<span class="ap-type">'+esc(r.t)+'</span><h3>'+esc(r.ko)+'</h3><span class="ap-en">'+esc(r.en)+'</span><p>'+esc(r.d)+'</p><ul>'+r.b.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
-    rg.hidden=false;window.rgFitEn&&rgFitEn();window.rgAnim&&rgAnim();requestAnimationFrame(()=>rg.classList.add('in'));rg.querySelector('.rg-x').focus({preventScroll:true});}
+    rgCard.innerHTML=true?'<span class="ap-type">'+esc(r.t)+'</span><h3><span class="rk">'+esc(r.ko)+'</span><span class="re">'+esc(r.en)+'</span></h3><p>'+esc(r.s||r.d)+'</p>'+(r.x?'<p class="rx">'+esc(r.x)+'</p>':''):'<span class="ap-type">'+esc(r.t)+'</span><h3>'+esc(r.ko)+'</h3><span class="ap-en">'+esc(r.en)+'</span><p>'+esc(r.d)+'</p><ul>'+r.b.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+    window.rgMoreShow&&rgMoreShow();rg.hidden=false;window.rgFitEn&&rgFitEn();window.rgAnim&&rgAnim();requestAnimationFrame(()=>rg.classList.add('in'));rg.querySelector('.rg-x').focus({preventScroll:true});}
   function closeRegion(){rg.classList.remove('in');setTimeout(()=>{rg.hidden=true;window.rgMoreReset&&rgMoreReset();if(rgFrom)rgFrom.focus({preventScroll:true})},350);}
   rg.querySelector('.rg-back').addEventListener('click',closeRegion);rg.querySelector('.rg-x').addEventListener('click',closeRegion);
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!rg.hidden)closeRegion()});
@@ -5844,6 +5844,9 @@ body:has(.rgmodal.mshow:not([hidden])) .mterm,body:has(.rgmodal.mshow:not([hidde
 .rg-more>*{animation:rgMoreIn .4s ease .12s both}
 @keyframes rgMoreIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 .rg-more.closing{animation:none;clip-path:inset(0 0 100% 0)}
+.rg-more.static{animation:none}
+.rg-more.static>*{animation:rgMoreIn .6s ease 1.5s both}
+.rgmodal:not(.in) .rg-more.static>*{animation:none}
 .rgmodal:not(.in) .rg-more{opacity:0;transform:translateY(14px) scale(.985)}
 .rg-more{background:linear-gradient(180deg,rgba(7,10,17,.86),rgba(7,11,18,.92) 46px,rgba(8,12,20,.86))!important}
 .rg-more::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--grain) repeat;background-size:256px;opacity:.3;mix-blend-mode:multiply}
@@ -5870,7 +5873,7 @@ function panel(k){var r=M[k];if(!r)return null;var warm=r[4]>0,T=(warm?'+':'−'
  var d=document.createElement('div');d.className='rg-more';d.id='rgMore';
  d.innerHTML='<div class="mh"><span class="mt">여행자 수첩</span></div><p class="md">'+e(r[0])+'</p><div class="grid"><div class="c-pop"><span class="lb">인구</span><div class="big">'+e(r[1])+'<small>명</small></div><span class="sub">'+e(r[2])+'</span></div><div class="c-race"><span class="lb">종족 구성</span>'+race+'</div><div class="c-wx"><span class="lb">평균 기온</span><div class="wx'+(warm?' warm':'')+'">'+(warm?HEAT:SNOW)+'<div><div class="wxt">'+T+'<sup>°C</sup></div><span class="sub" style="margin-top:4px">'+e(r[5])+'</span></div></div></div></div>';return d}
 function closeMore(rg,anim){var m=rg.querySelector('.rg-more');if(m){if(anim){m.classList.add('closing');setTimeout(function(){m.remove();if(!rg.querySelector('.rg-more'))rg.classList.remove('mshow')},420)}else{m.remove();rg.classList.remove('mshow')}}else rg.classList.remove('mshow');var b=rg.querySelector('.rg-mb');if(b){b.setAttribute('aria-expanded','false');b.firstChild.nodeValue='자세히 '}}
-window.rgMoreReset=function(){var rg=document.querySelector('.rgmodal');if(rg)closeMore(rg)};
+window.rgMoreReset=function(){var rg=document.querySelector('.rgmodal');if(rg)closeMore(rg)};window.rgMoreShow=function(){var rg=document.querySelector('.rgmodal');if(!rg)return;rg.querySelectorAll('.rg-more').forEach(function(x){x.remove()});var p=panel(rg.dataset.k);if(!p)return;p.classList.add('static');rg.querySelector('.rg-box').after(p);rg.classList.add('mshow');rg.scrollTop=0};
 document.addEventListener('click',function(ev){var b=ev.target.closest('.rgmodal .rg-mb');if(!b)return;ev.preventDefault();ev.stopPropagation();var rg=b.closest('.rgmodal');
  if(rg.querySelector('.rg-more:not(.closing)')){closeMore(rg,true);return}rg.querySelectorAll('.rg-more').forEach(function(x){x.remove()});
  var p=panel(rg.dataset.k);if(!p)return;rg.querySelector('.rg-box').after(p);rg.classList.add('mshow');b.setAttribute('aria-expanded','true');b.firstChild.nodeValue='접기 ';
@@ -5896,6 +5899,12 @@ body:has(#continent.on) .mterm .mt-ic{background:rgba(255,255,255,.82)!important
 .rgmodal.nophoto .rg-img .pin.on .pl,.rgmodal.nophoto .rg-img .pin .pl{opacity:0}
 </style>
 <style id="perf-ic">.ic-masc{animation-iteration-count:4!important}</style>
+<style id="rg-fit">
+@media (min-width:821px){
+ .rgmodal.mshow{--rgw:min(1060px,100%,calc((100svh - 11vh - 40px - 196px) * 1.905))}
+ .rgmodal.mshow .rg-box,.rgmodal.mshow .rg-more{width:var(--rgw)}
+}
+</style>
 <style id="perf-pause">body:not(:has(#home.on)) .emblem-float,body:not(:has(#home.on)) .emblem-shine{animation-play-state:paused}
 body:not(:has(#continent.on)) .desk-steam{animation-play-state:paused}
 .emblem-float{will-change:transform}</style>
